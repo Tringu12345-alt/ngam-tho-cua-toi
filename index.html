@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thi Sĩ AI - Đọc Thơ Truyền Cảm</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #fdf6e3; color: #5d4037; text-align: center; padding: 20px; }
+        textarea { width: 90%; height: 200px; border-radius: 15px; border: 1px solid #d3b8ae; padding: 15px; font-size: 16px; margin-bottom: 20px; }
+        button { background: #8e24aa; color: white; border: none; padding: 12px 25px; border-radius: 25px; font-size: 18px; cursor: pointer; transition: 0.3s; }
+        button:hover { background: #6a1b9a; }
+    </style>
+</head>
+<body>
+    <h2>Thả Hồn Vào Thơ</h2>
+    <textarea id="poemInput" placeholder="Dán bài thơ của bạn vào đây..."></textarea>
+    <br>
+    <button onclick="readPoem()">Ngâm Thơ</button>
+
+    <script>
+        function readPoem() {
+            const text = document.getElementById('poemInput').value;
+            const msg = new SpeechSynthesisUtterance();
+            msg.text = text;
+            msg.lang = 'vi-VN'; // Giọng tiếng Việt
+            msg.rate = 0.8; // Đọc chậm lại một chút cho truyền cảm
+            window.speechSynthesis.speak(msg);
+        }
+    </script>
+</body>
+</html>
